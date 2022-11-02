@@ -1,3 +1,3 @@
 module.exports = {
-    db: 'mongodb://localhost/webncbtcn04'
+    db: 'mongodb+srv://dieuhuong1211:dieuhuong2001@dhcluster.dwji3lw.mongodb.net/?retryWrites=true&w=majority'
 }
