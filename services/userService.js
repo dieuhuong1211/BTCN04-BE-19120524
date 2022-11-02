@@ -24,11 +24,17 @@ async function login({ username, password }, callback) {
     }
 }
 
-async function register(params, callback) {
-    if(params.username === undefined) {
-        return callback({ message: "Username Required"});
+const findAccount = async (data) => {
+    if(data){
+        const {username} = data;
+        return await User.findOne({
+            username: username,
+        })
     }
+    return null
+}
 
+async function register(params, callback) {
     const user = new User(params);
     user.save()
     .then((response) => {
@@ -42,4 +48,5 @@ async function register(params, callback) {
 module.exports = {
     login,
     register,
+    findAccount,
 };

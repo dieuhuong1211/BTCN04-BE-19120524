@@ -10,6 +10,8 @@ const cors  = require('cors');
 
 const app = express();
 
+app.use(express.json());
+app.use(cors());
 
 mongoose.Promise = global.Promise;
 mongoose.connect(dbConfig.db, {
@@ -34,8 +36,7 @@ app.use(
     })
 );
 
-app.use(express.json());
-app.use(cors());
+
 
 app.use("/users", require("./routes/userRoute"));
 
